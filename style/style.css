@@ -21,7 +21,7 @@ body {
     border: 2px solid black;
     border-radius: 10px;
     background: white;
-    margin-right: 1%;
+    margin: 1%;
     height: 100%;
 }
 
@@ -31,8 +31,8 @@ body {
 }
 
 input{
-    width: 450px;
     border: 1px solid #ddd;
+    width: 60%;
     height: 50px;
     padding: 0 20px;
     font-size: 14px;
@@ -40,7 +40,7 @@ input{
 }
 
 button{
-    width: 200px;
+    width: 30%;
     height: 50px;
     font-size: 14px;
     background: #ffbd4c;
@@ -49,6 +49,7 @@ button{
     font-weight: bold;
     color: #000;
     margin-top: 10px;
+    margin-left: 1%;
 }
 
 input, button{
@@ -79,4 +80,27 @@ p{
 }
 
 
+@media screen and (max-width: 450px){
+    .userWindow{
+        width: 97%;
+        height: 20%;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .userWindow{
+        width: 97%;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
 
