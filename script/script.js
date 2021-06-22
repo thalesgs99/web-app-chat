@@ -9,31 +9,32 @@ secondUserButtonElement.addEventListener("click", sendMessageToFirstUser);
 
 function sendMessageToSecondUser(e){
     e.preventDefault();
+
+    const senderTextBox = firstUserTextArea;
+    const receiverTextBox = secondUserTextArea;
     
-    const messageValue = document.querySelector(".firstInput").value;
-
-    firstUserTextArea.appendChild(createRightParagraph(messageValue));
-    secondUserTextArea.appendChild(createLeftParagraph(messageValue));
-    
-    document.querySelector(".firstInput").value = '';
-
-    attScroll();
-
+    sendMessage(senderTextBox,receiverTextBox,".firstInput");
 }
 
 function sendMessageToFirstUser(e){
     e.preventDefault();
     
-    const messageValue = document.querySelector(".secondInput").value;
+    const senderTextBox = secondUserTextArea;
+    const receiverTextBox = firstUserTextArea;
 
-    firstUserTextArea.appendChild(createLeftParagraph(messageValue));
-    secondUserTextArea.appendChild(createRightParagraph(messageValue));
-    
-    document.querySelector(".secondInput").value = '';
-
-    attScroll();
+    sendMessage(senderTextBox,receiverTextBox,".secondInput");
 }
 
+function sendMessage(sender, receiver, className){
+    const messageValue = document.querySelector(className).value;
+
+    sender.appendChild(createRightParagraph(messageValue));
+    receiver.appendChild(createLeftParagraph(messageValue));
+    
+    document.querySelector(className).value = '';
+
+    updateScroll();
+}
 
 function createElementParagraph(){
     return document.createElement("p");
@@ -61,7 +62,7 @@ function createATextNode(value){
     return document.createTextNode(value);
 }
 
-function attScroll(){
+function updateScroll(){
     firstUserTextArea.scrollTop = firstUserTextArea.scrollHeight;
     secondUserTextArea.scrollTop = secondUserTextArea.scrollHeight;
 }
